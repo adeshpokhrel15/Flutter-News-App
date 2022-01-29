@@ -1,30 +1,38 @@
-class News {
+
+
+
+
+class News{
+
   late String? title;
   late String? author;
-  late String? publishedData;
+  late String? publishedDate;
   late String? link;
-  late String? cleanUrl;
   late String? summary;
   late String? media;
 
-  News({
-    this.publishedData,
-    this.author,
-    this.link,
-    this.summary,
-    this.cleanUrl,
-    this.media,
-    this.title,
-  });
 
-  factory News.fromJSon(Map<String, dynamic> json) {
-    return News(
-        title: json['title'],
-        author: json['author'],
-        cleanUrl: json['clearnUrl'],
-        link: json['link'],
-        media: json['media'],
-        publishedData: json['publishedData'],
-        summary: json['summary']);
+  News({
+    this.summary,
+    this.publishedDate,
+    this.media,
+     this.link,
+    this.author,
+   this.title,
+});
+
+
+  factory News.fromJson(Map<String, dynamic> json){
+  return News(
+      summary: json['summary'] ?? '',
+      publishedDate: json['published_date'] ?? '',
+      media: json['media'] ?? 'https://asvs.in/wp-content/uploads/2017/08/dummy.png',
+      link: json['link'] ?? '' ,
+      author: json['author'] ?? '' ,
+      title: json['title'] ?? ''
+  );
   }
+
+
+
 }
